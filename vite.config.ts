@@ -28,23 +28,23 @@ export default defineConfig(({ mode }) => {
           additionalData: `@import "${globalCssPath}";`
         }
       },
-      postcss: resolve('./postcss.config.js')
     },
     base: env.VITE_BASE_URL,
     build: {
-      // 初始 chunk> 800，控制台警告，需手动进行分包。
-      chunkSizeWarningLimit: 800,
+      lib: {
+        entry: resolve(__dirname, 'lib/main.ts'),
+        name: 'vue-tree',
+        fileName: 'vue-tree',
+      },
       rollupOptions: {
+        // 确保外部化处理那些你不想打包进库的依赖
+        external: ['vue'],
         output: {
-          // 自定义分割 chunks。node_modules中的每一个模块都是一个chunk
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              const reg = /node_modules\/([\w\-@]+)\//
-              const chunkName = id.match(reg)?.[1]
-              return chunkName
-            }
-          }
-        }
+          // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
+          globals: {
+            vue: 'Vue',
+          },
+        },
       },
     },
     server: {
