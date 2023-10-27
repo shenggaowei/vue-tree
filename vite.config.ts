@@ -17,7 +17,8 @@ export default defineConfig(({ mode }) => {
     ],
     resolve: {
       alias: {
-        '@': resolve('./src')
+        '@': resolve('./src'),
+        "lib": resolve('./lib')
       }
     },
     css: {

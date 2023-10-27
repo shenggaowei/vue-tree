@@ -10,5 +10,6 @@ const valueRef = ref();
 
 <style lang="scss" module="style">
 .container {
+  background: orange;
 }
 </style>

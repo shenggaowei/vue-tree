@@ -1,5 +1,5 @@
 {
-  "name": "vue-tree",
+  "name": "@shenggao/vue-tree",
   "version": "0.0.1",
   "type": "module",
   "files": [
@@ -48,5 +48,9 @@
   },
   "lint-staged": {
     "src/**/*": "prettier --write --ignore-unknown"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
