@@ -1,23 +1,12 @@
 <template>
-  <a-config-provider
-    :theme="{
-      algorithm: theme.defaultAlgorithm,
-      token: {
-        colorPrimary: '#336c7f',
-      },
-    }"
-  >
-    <router-view></router-view>
-  </a-config-provider>
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts">
-import { theme } from "ant-design-vue";
 import { useSystemStore } from "@/store";
-import { isMobile } from "@/utils";
 
 const store = useSystemStore();
-store.updateSystemDeviceInfo(isMobile());
+store.updateSystemDeviceInfo(false);
 </script>
 
 <style lang="scss">

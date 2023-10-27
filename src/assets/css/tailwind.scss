@@ -1,9 +1,0 @@
-@import url("tailwindcss/tailwind.css");
-
-@layer base {
-  // tailwind 会给 button 添加默认的底色，在这里定义覆盖掉
-  button,
-  .ant-btn-primary {
-    background-color: $main_theme;
-  }
-}
